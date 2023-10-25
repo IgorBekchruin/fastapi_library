@@ -1,2 +1,13 @@
+__pycache__/
+.vscode
+
+
+__pypackages__/
+
+
 .env
+.venv
+env/
 venv/
+
+.idea/
