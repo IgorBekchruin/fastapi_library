@@ -1,6 +1,6 @@
 from sqladmin import ModelView
 
-from src.book.models import Genre
+from src.genre.models import Genre
 
 
 class GenreAdmin(ModelView, model=Genre):

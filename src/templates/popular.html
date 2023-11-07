@@ -4,12 +4,12 @@
 <div class="container">
     <div class="my-10">
         <div class="text-center my-16">
-            <h1 class="text-4xl font-bold text-gray-600">Самые популярные произведения</h1>
+            <h1 class="text-4xl font-bold text-gray-600">Популярные произведения</h1>
         </div>
         <div class="flex flex-row justify-center pt-12 gap-16 md:flex-wrap">
             {% for popbook in pop_book_list %}
             <div class="px-4 py-2 w-72">
-                    <img src="{{ url_for('static', path='/img/book.jpg') }}" alt="" class="">
+                    <img src="{{ url_for('static', path=popbook.image) }}" alt="" class="">
                     <h2 class="py-4 text-center font-bold text-black text-xl"><a href="{{ url_for('get_detail_book', book_name=popbook.name) }}">{{ popbook.name }}</a></h2>
                     <p class="text-center text-mdgrey text-xs">{{ popbook.author.name }}</p>
                     <p class="py-2 text-center text-mdgrey text-xs">{{ popbook.genre.name }}</p>

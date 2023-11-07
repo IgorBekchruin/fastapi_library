@@ -15,8 +15,8 @@
         <tbody>
         {% for author in author_list %}
           <tr class="odd:bg-gray-100 hover:!bg-stone-200">
-              <td class="p-3 border-b border-l text-left"><a href="">{{ author.name }}</a></td>
-            <td class="p-3 border-b border-l text-center"></td>
+              <td class="p-3 border-b border-l text-left"><a href="{{ url_for('get_books_by_author', author_id=author.id) }}">{{ author.name }}</a></td>
+            <td class="p-3 border-b border-l text-center">{{ author.count_book }}</td>
           </tr>
         {% endfor %}
         </tbody>

@@ -5,12 +5,14 @@
 
         <div class="flex gap-8 p-6">
             <div class="w-1/4">
-                <img src="{{ url_for('static', path='/img/bookdetail.jpg') }}" alt="" class="w-96">
+                <img src="{{ url_for('static', path=book.image) }}" alt="" class="w-96">
             </div>
             <div class="w-3/4">
                 <h1 class="py-3 font-bold text-2xl">Название: <a href="" class="hover:underline hover:text-blue-800">{{ book.name }}</a></h1>
-                <p class="py-3 font-bold text-l">Автор: <a href="" class="hover:underline hover:text-blue-800">{{ book.author.name }}</a></p>
-                <p class="py-3 font-bold text-l">Жанр: <a href="" class="hover:underline hover:text-blue-800">{{ book.genre.name }}</a></p>
+                <p class="py-3 font-bold text-l">Автор: <a href="{{ url_for('get_books_by_author', author_id=book.author.id) }}" class="hover:underline hover:text-blue-800">{{ book.author.name }}</a></p>
+                <p class="py-3 font-bold text-l">Жанр: <a href="{{ url_for('get_books_by_genre', genre_id=book.genre.id) }}" class="hover:underline hover:text-blue-800">{{ book.genre.name }}</a></p>
+                <p class="py-3 font-bold text-l">Количество страниц: {{ book.pages }}</p>
+                <p class="py-3 font-bold text-l">Рейтинг: {{ book.rating }} из 5.0</p>
                 <p class="text-base leading-7">{{ book.annotate }}</p>
             </div>
         </div>
@@ -35,7 +37,7 @@
         </div>
         {% endfor %}
 
-        <div class="max-w-xl mx-8 p-5 my-8 bg-gray-100 rounded-md">
+        <!-- <div class="max-w-xl mx-8 p-5 my-8 bg-gray-100 rounded-md">
             <div class="">
               <h1 class="my-3 text-3xl font-semibold text-gray-700">Оставить отзыв</h1>
             </div>
@@ -76,7 +78,7 @@
                 </div>
               </form>
             </div>
-          </div>
+          </div> -->
 
     </div>
 {% endblock %}

@@ -3,24 +3,37 @@
 {% block content %}
 <main>
     <div class="h-[500px] justify-center"
-         style="background-image: url('{{ url_for('static', path='/img/lib1.jpg') }}')">
+         style="background-image: url('{{ url_for('static', path='/images/lib1.jpg') }}')">
         <div class="container flex">
             <div class="mx-auto text-center pt-36">
                 <h1 class="mx-auto mb-16 pt-4 text-6xl text-white font-bold">Добро пожаловать в MyLib</h1>
-                <a href="" class="bg-red-200 px-8 py-3 rounded-lg font-bold text-lg text-white items-center">Найти
-                    книгу</a>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="my-10">
             <div class="text-center my-16">
-                <h1 class="text-4xl font-bold text-gray-600">Откройте для себя новую книгу</h1>
+                <h1 class="text-4xl font-bold text-gray-600">Последние новинки</h1>
             </div>
-            <div class="flex gap-10">
-                {% for book in book_list %}
+            <div class="flex flex-row justify-center pt-12 gap-16 md:flex-wrap">
+                {% for book in new_books %}
                 <div class="px-4 py-2 w-72">
-                    <img src="{{ url_for('static', path='/img/book.jpg') }}" alt="" class="p-4">
+                    <img src="{{ url_for('static', path=book.image) }}" alt="" class="p-4">
+                    <h2 class="py-4 text-center font-bold text-black text-xl"><a href="{{ url_for('get_detail_book', book_name=book.name) }}">{{ book.name}}</a></h2>
+                    <p class=" text-center text-mdgrey text-base">{{ book.author.name}}</p>
+                    <p class="py-2 text-center text-mdgrey text-base">{{ book.genre.name }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="my-10">
+            <div class="text-center my-16">
+                <h1 class="text-4xl font-bold text-gray-600">Бестселлеры</h1>
+            </div>
+            <div class="flex flex-row justify-center pt-12 gap-16 md:flex-wrap">
+                {% for book in pop_books %}
+                <div class="px-4 py-2 w-72">
+                    <img src="{{ url_for('static', path=book.image) }}" alt="" class="p-4">
                     <h2 class="py-4 text-center font-bold text-black text-xl"><a href="{{ url_for('get_detail_book', book_name=book.name) }}">{{ book.name}}</a></h2>
                     <p class=" text-center text-mdgrey text-base">{{ book.author.name}}</p>
                     <p class="py-2 text-center text-mdgrey text-base">{{ book.genre.name }}</p>

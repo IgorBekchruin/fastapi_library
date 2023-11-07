@@ -13,5 +13,3 @@ class CreateGenre(BaseGenre):
 
 class ViewGenre(BaseGenre):
     id: int
-
-

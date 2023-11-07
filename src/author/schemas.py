@@ -13,4 +13,3 @@ class CreateAuthor(BaseAuthor):
 
 class ViewAuthor(BaseAuthor):
     id: int
-

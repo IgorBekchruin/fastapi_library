@@ -15,8 +15,8 @@
         <tbody>
         {% for genre in genre_list %}
           <tr class="odd:bg-gray-100 hover:!bg-stone-200">
-            <td class="p-3 border-b border-l text-left"><a href="">{{ genre.name }}</a></td>
-            <td class="p-3 border-b border-l text-center"></td>
+            <td class="p-3 border-b border-l text-left"><a href="{{ url_for('get_books_by_genre', genre_id=genre.id) }}">{{ genre.name }}</a></td>
+            <td class="p-3 border-b border-l text-center">{{ genre.count_book }}</td>
           </tr>
         {% endfor %}
         </tbody>
