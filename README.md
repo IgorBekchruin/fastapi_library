@@ -1,6 +1,6 @@
 # fastapi_library
 
-EST API online library service implemented on fastapi. The service allows you to add books to the main database using an API.
+REST API online library service implemented on fastapi. The service allows you to add books to the main database using an API.
 
 Backend:
 * Python
