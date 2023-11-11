@@ -2,6 +2,8 @@
 
 REST API online library service implemented on fastapi. The service allows you to add books to the main database using an API.
 
+![library](https://github.com/IgorBekchruin/fastapi_library/assets/107909070/647ce5c6-6094-4b1a-a25d-ddeaff2b6957)
+
 Backend:
 * Python
 * Fastapi
