@@ -31,7 +31,7 @@ admin.add_view(AuthorAdmin)
 admin.add_view(BookAdmin)
 
 origins = [
-    "http://localhost:8000",
+    "*",
 ]
 
 app.add_middleware(

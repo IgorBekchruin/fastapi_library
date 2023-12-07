@@ -1,0 +1,43 @@
+version: '3.7'
+services:
+  library:
+    build:
+      context: .
+    env_file:
+      - .env
+    command: ["/library/docker/app.sh"]
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+      - redis
+
+  nginx:
+    build:
+      context: .
+      dockerfile: "Dockerfile.nginx"
+    container_name: library_nginx
+    ports:
+      - 80:80
+      - 443:443
+    links:
+      - library
+    depends_on:
+      - library
+
+  db:
+    image: postgres:15
+    container_name: library_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+
+  redis:
+    image: redis:7
+    container_name: library_redis
+
+volumes:
+  postgres_data:
